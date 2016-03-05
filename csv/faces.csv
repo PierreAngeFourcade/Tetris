@@ -1,0 +1,8 @@
+#STRUCTURE CSV : (int) id_face, (string)nom_de_la_face
+1,rose
+2,vert
+3,orange
+4,rouge
+5,bleu
+6,violet
+7,jaune
