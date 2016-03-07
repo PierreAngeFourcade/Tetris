@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
@@ -28,7 +27,7 @@ public class paintGrille extends JPanel {
 		final PieceDao pieceDao = new PieceDao();
 		final List<Piece> pieces = pieceDao.findPieces();
 		images = new Image[2];
-		images[1] = lireImage("faces/"+pieces.get(1).getNomPiece()+".png");
+		images[1] = lireImage("faces/"+pieces.get(6).getNomPiece()+".png");
 		images[0] = lireImage("faces/blanc.png");
 	}
  
@@ -65,7 +64,7 @@ private void drawGrid(Graphics g) {
 				int y = i * hauteur;
                 Image image = images[grid[i][j]];
 				char tableau[] = new char[16]; 
-				tableau = pieces.get(1).getTab().toCharArray();
+				tableau = pieces.get(6).getTab().toCharArray();
 				
 					if(tableau[k] == '0')
 					{
@@ -73,7 +72,7 @@ private void drawGrid(Graphics g) {
 						if ( image!=null ) { // on est sur au moins comme ça que si le fichier n'a pas été trouvé, on plante pas
 	                    	 g.drawImage(image, x, y, largeur, hauteur, this); 
 	                     }
-					}else if(tableau[k] == '1'){
+					}else{
 						grid[i][j]=1;
 						if ( image!=null ) { // on est sur au moins comme ça que si le fichier n'a pas été trouvé, on plante pas
 	                    	 g.drawImage(image, x, y, largeur, hauteur, this); 
@@ -88,24 +87,6 @@ private void drawGrid(Graphics g) {
                 for (int i = 0; i <= height; i+=hauteur) { 
                    g.drawLine(0, i, width, i); 
                 }
-}
-	
-	
-	
-public static void main(String[] args) throws IOException {
-	
-	
-	JFrame frame = new JFrame();
-	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	paintGrille grille = new paintGrille();
-
-	frame.setContentPane(grille);
-
-	frame.setSize(200, 200);
-	frame.setLocationRelativeTo(null);
-
-	frame.setVisible(true);
-
 }
  
 }

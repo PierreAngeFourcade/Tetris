@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import com.opencsv.CSVReader;
 
 
@@ -16,7 +14,7 @@ public class PieceDao {
 	 private final static String RESOURCES_PATH = "csv/";
 	 private final static String PIECES_FILE_NAME = "pieces.csv";
 	 private final static char SEPARATOR = ',';
-	 private static CSVReader csvReader;
+	 private CSVReader csvReader;
 	 
     public List<Piece> findPieces() throws IOException {
     	 File file = new File(RESOURCES_PATH + PIECES_FILE_NAME);
