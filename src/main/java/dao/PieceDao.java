@@ -11,7 +11,7 @@ import com.opencsv.CSVReader;
 
 public class PieceDao {
 	
-	 private final static String RESOURCES_PATH = "csv/";
+	 private final static String RESOURCES_PATH = "src/main/resources";
 	 private final static String PIECES_FILE_NAME = "pieces.csv";
 	 private final static char SEPARATOR = ',';
 	 private CSVReader csvReader;
@@ -45,8 +45,11 @@ public class PieceDao {
          for (String[] oneData : data) {
              String id = oneData[0];
              String nomPiece = oneData[1];
-             String tableauPiece = oneData[2];
-             Piece piece = new Piece(id, nomPiece, tableauPiece);
+             String position1 = oneData[2];
+             String position2 = oneData[3];
+             String position3 = oneData[4];
+             String position4 = oneData[5];
+             Piece piece = new Piece(id, nomPiece,position1);
              pieces.add(piece);
          }
        

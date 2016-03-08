@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/3.3.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/3.3.9 http://maven.apache.org/xsd/maven-3.3.9.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>Tetris</groupId>
@@ -12,6 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    		<junit.version>3.8.1</junit.version>
+    
   </properties>
 
   <dependencies>
@@ -20,6 +22,12 @@
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
-    </dependency>
-  </dependencies>
+     </dependency>
+     <dependency>
+      <groupId>open-csv</groupId>
+      <artifactId>open-csv</artifactId>
+      <version>3.7</version>
+      <scope>compile</scope>
+     </dependency>
+    </dependencies>
 </project>
