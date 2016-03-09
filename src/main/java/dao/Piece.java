@@ -21,10 +21,13 @@ public class Piece {
 		int tableauPiece[] = new int[16];
 		
 		public Piece(String id, String nomPiece, String position1) {
-			super();
 			this.id = id;
 			this.nomPiece = nomPiece;
 			this.position1 = position1;
+			for (int i=0;i<16;i++) {
+				tableauPiece[k]=0;
+			}
+
 		}
 
 		public String getId() {
@@ -57,7 +60,7 @@ public class Piece {
 		}
 		
 		public void generationPiece() throws IOException {
-			choix = (int) (Math.random() * 6 + 0);
+			choix = (int) (Math.random() * 7);
 			final List<Piece> pieces = pieceDao.findPieces();
 			tableauPieceChar = pieces.get(choix).getPosition1().toCharArray();
 			for(int elt : tableauPieceChar)
