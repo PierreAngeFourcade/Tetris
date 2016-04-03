@@ -23,11 +23,11 @@ public class Board {
 		return board;
 	}
 
-	private void setBoard(int[][] board) {
+	public void setBoard(int[][] board) {
 		this.board = board;
 	}
 	
-	private boolean isFullLine(){
+	public boolean isFullLine(){
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 10; j++) {
 				if(board[i][j]==0)
