@@ -14,7 +14,7 @@
     <junit.version>3.8.1</junit.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
@@ -63,8 +63,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 
@@ -76,7 +77,7 @@
 				  <archive>
 				    <manifest>
 					<addClasspath>true</addClasspath>
-					<mainClass>jeu.App</mainClass>
+					<mainClass>jeu.Partie</mainClass>
 					<classpathPrefix>dependency-jars/</classpathPrefix>
 				    </manifest>
 				  </archive>

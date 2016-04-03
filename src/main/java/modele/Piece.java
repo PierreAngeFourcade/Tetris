@@ -10,8 +10,8 @@ public class Piece {
 		private int positionX;
 		private int positionY;
 		
-		public Piece(int type, int positionX, int positionY) {
-			this.forme = generationPiece(type);
+		public Piece(int[][] forme, int positionX, int positionY) {
+			this.forme = generatePiece();
 			this.positionX = positionX;
 			this.positionY = positionY;
 		}
@@ -22,7 +22,7 @@ public class Piece {
 		}
 
 
-		public void setForme(int[][] forme) {
+		private void setForme(int[][] forme) {
 			this.forme = forme;
 		}
 
@@ -42,8 +42,9 @@ public class Piece {
 		private void setPositionY(Integer positionY) {
 			this.positionY = positionY;
 		}
-		
-		private int[][] generationPiece(int type) {
+
+		public int[][] generatePiece() {
+			int type = (int) (Math.random() * 7);
 			switch (type) {
             case 0:   forme = new int[][] {{0,1,0,0},{0,1,1,0},{0,0,1,0},{0,0,0,0}}; break;
             case 1:   forme = new int[][] {{0,2,2,0},{0,2,2,0},{0,0,0,0},{0,0,0,0}}; break;
@@ -56,22 +57,22 @@ public class Piece {
 			return forme;
 		}
 
-		private void descente(){
+		public void moveDown(){
 			positionX++;
 		}
 		
-		private void deplacementGauche(){
+		public void moveLeft(){
 			positionY--;
 		}
 		
-		private void deplacementDroite() {
+		public void moveRight() {
 			positionY++;
 		}
 		
-		private void rotation(){
+		public void rotate(){
 		    for( int i = 0 ; i < 4 ; i++){
 		    	for(int j =0; j < 4; j++){
-					//formeTmp[i][j]=forme[4-1-j][i];
+					forme[i][j]=forme[4-1-j][i];
 		    	}
 		    }
 		}

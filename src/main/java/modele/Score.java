@@ -1,15 +1,13 @@
 package modele;
 
-import java.util.List;
-
 public class Score {
 	
 	private String name;
-	private int total;
+	private int score;
 	
-	public Score(String name, int total){
+	public Score(String name, int score){
 		this.name = name;
-		this.total = total;
+		this.score = score;
 	}
 	
 	public String getName() {
@@ -20,12 +18,15 @@ public class Score {
 		this.name = name;
 	}
 
-	public int getTotal() {
-		return total;
+	public int getScore() {
+		return score;
 	}
 
-	public void setTotal(int total) {
-		this.total = total;
+	public void setScore(int score) {
+		this.score = score;
 	}
 	
+	public void incrementScore(){
+		this.score++;
+	}
 }

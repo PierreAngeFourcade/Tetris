@@ -1,99 +1,101 @@
-package jeu;
+package controleur;
 
-import java.awt.event.KeyEvent;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
-
 import modele.Board;
 import modele.Piece;
+import vue.Display;
 
 public class Partie
 {
 	private Piece piece;
 	private Board board;
-	private int[][] pieceTab = piece.getForme();
-	private int[][] boardTab = board.getBoard();
-	private int positionX = piece.getPositionX();
-	private int positionY = piece.getPositionY();
+	private Display display;
+	private int[][] pieceTab = null;
+	private int[][] boardTab = null;
+	private int positionX; //= piece.getPositionX();
+	private int positionY; //= piece.getPositionY();
 	
 	//int type = (int) (Math.random() * 7);
 	
     public Partie(Piece piece, Board board){
-    	this.piece = new Piece(0,0,3);
+    	this.piece = new Piece(pieceTab,0,3);
     	this.board= new Board();
+    	pieceTab = piece.getForme();
+    	boardTab = board.getBoard();
+    	positionX = 0;
+    	positionY = 3;
     }
     
-    private boolean checkPosition(Piece piece){
-    	for(int i = 0; i < 4 ; i++){
-    		for(int j = 0; j < 4 ; j++){
-    			if(pieceTab[i][j] != 0)
-    			{
-    				if(boardTab[i+positionX][j+positionY] != 0)
-    				{
-    					return true;
-    				}
-    			}
-    		}
-    	}
-    	return false;
-    }
-    private boolean lignePleine(Board board){
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 10; j++) {
-				if(boardTab[i][j]==0)
-					return false;
-			}
-		}
-		return true;
-    }
-    
-    private boolean checkRightMove(Piece piece){
+    public int[][] getBoardTab() {
+		return boardTab;
+	}
+
+	public void setBoardTab(int[][] boardTab) {
+		this.boardTab = boardTab;
+	}
+	
+	public int[][] getPieceTab() {
+		return pieceTab;
+	}
+
+	public void setPieceTab(int[][] pieceTab) {
+		this.pieceTab = pieceTab;
+	}  
+
+    private boolean isMovableRight(Piece piece){
     	for(int i = 0; i < 4 ; i++){
     		for(int j = 0; j < 4 ; j++){
     			if(pieceTab[i][j] != 0)
     			{
     				if(boardTab[i+positionX][j+positionY+1] != 0)
     				{
-    					return true;
+    					return false;
     				}
     			}
     		}
     	}
-    	return false;
+    	return true;
     }
     
-    private boolean checkLeftMove(Piece piece){
+    private boolean isMovableLeft(Piece piece){
     	for(int i = 0; i < 4 ; i++){
     		for(int j = 0; j < 4 ; j++){
     			if(pieceTab[i][j] != 0)
     			{
     				if(boardTab[i+positionX][j+positionY-1] != 0)
     				{
-    					return true;
+    					return false;
     				}
     			}
     		}
     	}
-    	return false;
+    	return true;
     }
     
-    private boolean checkDownMove(Piece piece){
+    private boolean canBeRotated(Piece piece){
+    	
+		return false;
+    	
+    }
+    
+    private boolean isMovableDown(Piece piece){
     	for(int i = 0; i < 4 ; i++){
     		for(int j = 0; j < 4 ; j++){
     			if(pieceTab[i][j] != 0)
     			{
     				if(boardTab[i+positionX+1][j+positionY] != 0)
     				{
-    					return true;
+    					return false;
     				}
     			}
     		}
     	}
-    	return false;
+    	return true;
     }
     
-    private void saveBoard(Board board){
+    public void saveBoard(int[][] boardTab, int[][] pieceTab){
     	for(int i = 0; i < 4 ; i++){
     		for(int j = 0; j < 4 ; j++){
     			if(pieceTab[i][j] != 0)
@@ -106,8 +108,8 @@ public class Partie
     		}
     	}
     }
-    
-    public Collection<Character> getInput() {
+	
+	public Collection<Character> getInput() {
         try {
             Collection<Character> result = new ArrayList<>();
             int read = RawConsoleInput.read(false);
@@ -121,10 +123,27 @@ public class Partie
         }
     }
     
-	public static void main(String[] args) throws IOException {
-        	  System.out.println("Welcome to Tetris Bitch !\n");
-        	  while(true){
-        		  
-        	  }
+    
+    public void keyPressed(Collection<Character> result) {
+	if(((ArrayList<Character>) result).isEmpty() == false){
+		switch (((ArrayList<Character>) result).get(0)) {
+			case 'q' :
+				if(isMovableLeft(piece)) piece.moveLeft();	break;
+			case 'd' : 
+				if(isMovableRight(piece)) piece.moveRight();	break;
+			case 'z' : 
+				if(canBeRotated(piece)) piece.rotate();
+			case 's' : 
+				if(isMovableDown(piece)) piece.moveDown();	break;
+			default :
+				if(isMovableRight(piece)) piece.moveDown();	break;
+		}
 	}
+}
+    
+	public static void main(String[] args) throws IOException {
+      
+	}
+
+
 }

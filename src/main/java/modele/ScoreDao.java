@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import com.opencsv.CSVReader;
 
@@ -24,18 +25,15 @@ public class ScoreDao {
 
          String[] nextLine = null;
          while ((nextLine = csvReader.readNext()) != null) {
-             int size = nextLine.length;
 
-             // ligne vide
-             if (size == 0) {
+             if (nextLine.length == 0) {
                  continue;
              }
              String debut = nextLine[0].trim();
-             if (debut.length() == 0 && size == 1) {
+             if (debut.length() == 0 && nextLine.length == 1) {
                  continue;
              }
 
-             // ligne de commentaire
              if (debut.startsWith("#")) {
                  continue;
              }
@@ -51,4 +49,5 @@ public class ScoreDao {
        
          return scores;
     }
+
 }
