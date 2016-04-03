@@ -1,11 +1,8 @@
 package modele;
 
-import java.io.IOException;
-import java.util.List;
 
 public class Piece {
 
-		private int type;
 		private int[][] forme;
 		private int positionX;
 		private int positionY;
