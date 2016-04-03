@@ -8,11 +8,10 @@ import modele.Partie;
 
 public class Controleur {
 	private static Partie partie;
-	//private Controleur controleur = new Controleur();
 	private Collection<Character> result = null;
 
 	public Controleur() {
-		this.partie = new Partie();
+		Controleur.partie = new Partie();
 	}
 	
 	public Collection<Character> getInput() {
