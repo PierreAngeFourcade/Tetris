@@ -22,12 +22,12 @@ Pour lancer le projet :
 
 Voici les commandes du jeu :
 
-  | Commande     | Description                    |
-  |--------------|:------------------------------:|
-	| ```Z```      | Fait pivoter la piece          |
-	| ```S```      | Fait descendre la piece        |
-	| ```Q```      | Décale la piece vers la gauche |
-	| ```D```      | Décale la piece vers la droite |
+| Commande     | Description                    |
+|--------------|:------------------------------:|
+| ```Z```      | Fait pivoter la piece          |
+| ```S```      | Fait descendre la piece        |
+| ```Q```      | Décale la piece vers la gauche |
+| ```D```      | Décale la piece vers la droite |
 
 ##### Architecture
 
