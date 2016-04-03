@@ -18,7 +18,9 @@ public class Partie
 	private int positionY;	
 	
     public Partie(){
+    	piece = new Piece(null, 0, 0);
     	this.pieceTab = piece.getForme();
+    	board = new Board();
     	this.boardTab = board.getBoard();
     	this.piece = new Piece(pieceTab,0,3);
     	this.board= new Board();

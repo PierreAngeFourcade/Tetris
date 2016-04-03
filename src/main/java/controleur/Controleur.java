@@ -9,7 +9,7 @@ import modele.Partie;
 public class Controleur {
 	private static Partie partie;
 	private boolean gameOver;
-	private Controleur controleur = new Controleur();
+	//private Controleur controleur = new Controleur();
 	private Collection<Character> result = null;
 
 	public Controleur() {
@@ -50,11 +50,9 @@ public class Controleur {
     
     public void run() throws InterruptedException{
     	while(!gameOver){
-    		if(controleur != null)
-  			  result=controleur.getInput();
-    		controleur.keyPressed(result);
-    		Thread.sleep(200);
+  			result=this.getInput();
+    		this.keyPressed(result);
+    		System.out.println(result);
     	}
     }
-
 }
