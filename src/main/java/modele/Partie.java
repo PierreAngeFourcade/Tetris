@@ -137,6 +137,7 @@ public class Partie
     	}
     	return false;
     }
+  
     
     public int[][] initPieceTab(){
     	int[][] tab = new int[4][4];
