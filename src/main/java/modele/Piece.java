@@ -11,7 +11,7 @@ public class Piece {
 		private int positionY;
 		
 		public Piece(int[][] forme, int positionX, int positionY) {
-			this.forme = generatePiece();
+			this.forme = forme;
 			this.positionX = positionX;
 			this.positionY = positionY;
 		}
@@ -43,7 +43,7 @@ public class Piece {
 			this.positionY = positionY;
 		}
 
-		public int[][] generatePiece() {
+		public void generatePiece() {
 			int type = (int) (Math.random() * 7);
 			switch (type) {
             case 0:   forme = new int[][] {{0,1,0,0},{0,1,1,0},{0,0,1,0},{0,0,0,0}}; break;
@@ -54,25 +54,24 @@ public class Piece {
             case 5:   forme = new int[][] {{0,0,6,0},{0,0,6,0},{0,6,6,0},{0,0,0,0}}; break;
             case 6:   forme = new int[][] {{0,7,0,0},{0,7,0,0},{0,7,7,0},{0,0,0,0}}; break;
 			} 
-			return forme;
 		}
 
 		public void moveDown(){
-			positionX++;
+			this.positionX++;
 		}
 		
 		public void moveLeft(){
-			positionY--;
+			this.positionY--;
 		}
 		
 		public void moveRight() {
-			positionY++;
+			this.positionY++;
 		}
 		
 		public void rotate(){
 		    for( int i = 0 ; i < 4 ; i++){
 		    	for(int j =0; j < 4; j++){
-					forme[i][j]=forme[4-1-j][i];
+					this.forme[i][j]=forme[4-1-j][i];
 		    	}
 		    }
 		}

@@ -8,7 +8,17 @@ public class Board {
 	{
 		this.board = new int[21][10];
 	}
-
+	
+	public void init() {
+		for (int i = 0; i < 20; i++){
+			for (int j = 0; j < 10; j++) {
+				board[i][j] = 0;
+			}
+		}
+		for (int j = 0; j < 10; j++) {
+			board[20][j] = 1;
+		}
+	}
 	public int[][] getBoard() {
 		return board;
 	}
@@ -34,6 +44,6 @@ public class Board {
 						board[i][l]=board[i-1][l];
 				}				
 		for(int j = 0; j < 10; j++)
-			board[20][j]=0;
+			board[20][j]=1;
 	}
 }

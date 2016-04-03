@@ -2,10 +2,10 @@ package vue;
 	
 import java.util.List;
 
-import controleur.Partie;
 import modele.Piece;
 import modele.Score;
 import modele.Board;
+import modele.Partie;
 	 
 	
 	public class Display{
@@ -17,11 +17,11 @@ import modele.Board;
 		private int[][] tabPiece;
 		
 		public Display() {
-	    	this.piece = new Piece(tabPiece,0,3);
+	    	this.piece = new Piece(null,0,3);
 	    	this.board = new Board();
-	    	this.partie = new Partie(piece,board);
-	    	this.tabBoard = partie.getBoardTab();
-	    	this.tabPiece = partie.getPieceTab();
+	    	this.partie = new Partie();
+	    	this.tabBoard = board.getBoard();
+	    	this.tabPiece = piece.getForme();
 		}
 		
 		public void showGrid() {
