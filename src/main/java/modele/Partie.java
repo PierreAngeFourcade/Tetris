@@ -1,17 +1,11 @@
 package modele;
 
-import java.awt.event.KeyListener;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
 
-import vue.Display;
 
 public class Partie
 {
 	private Piece piece;
 	private Board board;
-	private Score score;
 	private int[][] pieceTab;
 	private int[][] boardTab;
 	private int positionX; 
@@ -24,7 +18,7 @@ public class Partie
     	this.boardTab = board.getBoard();
     	this.piece = new Piece(pieceTab,0,3);
     	board.init();
-    	this.score = new Score("Unknow", 0);
+    	new Score("Unknow", 0);
     	pieceTab = initPieceTab();
     	this.positionX = 0;
     	this.positionY = 3;
