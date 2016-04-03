@@ -8,13 +8,11 @@ import modele.Partie;
 
 public class Controleur {
 	private static Partie partie;
-	private boolean gameOver;
 	//private Controleur controleur = new Controleur();
 	private Collection<Character> result = null;
 
 	public Controleur() {
 		this.partie = new Partie();
-		this.gameOver = false;
 	}
 	
 	public Collection<Character> getInput() {

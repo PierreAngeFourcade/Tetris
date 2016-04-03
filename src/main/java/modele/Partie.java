@@ -25,6 +25,7 @@ public class Partie
     	this.piece = new Piece(pieceTab,0,3);
     	board.init();
     	this.score = new Score("Unknow", 0);
+    	pieceTab = initPieceTab();
     	this.positionX = 0;
     	this.positionY = 3;
     }
@@ -135,6 +136,14 @@ public class Partie
     		}
     	}
     	return false;
+    }
+    
+    public int[][] initPieceTab(){
+    	int[][] tab = new int[4][4];
+    	for(int i=0; i<4; i++)
+    		for(int j=0; j<4; j++)
+    			tab[i][j] = 0;
+    	return tab;
     }
 
 }
