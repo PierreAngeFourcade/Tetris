@@ -23,7 +23,6 @@ public class Partie
     	board = new Board();
     	this.boardTab = board.getBoard();
     	this.piece = new Piece(pieceTab,0,3);
-    	this.board= new Board();
     	board.init();
     	this.score = new Score("Unknow", 0);
     	this.positionX = 0;
