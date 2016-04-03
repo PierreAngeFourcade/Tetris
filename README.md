@@ -35,8 +35,9 @@ Voici les commandes du jeu :
   + Vue : ce composant affiche la grille du jeu avec le tétromino qui se déplace. Une fois la partie terminée, elle affiche la liste des 5 meilleurs scores.
   + Contrôleur : ce composant gère la logique du jeu et les règles qui le régit. C'est l'intermédiaire entre le modèle et la vue : le contrôleur va demander au modèle les données puis les traiter avant de les renvoyer à la vue pour l'affichage.
 
-###### Design patterns et SOLID
+##### Design patterns et SOLID
 
   + DAO : Ce design pattern est utilisé pour gérer le fichier CSV des highscores. Il permet de récupérer ces donneés.
   + Listener : Il sert à récupérer les événements qui interargissent avec le déroulement du jeu, notamment les touches du clavier pour les déplacements grâce à RawConsoleInput.
-  + Single Responsibiliy Principle : Chaque classe possède plusieurs méthodes qui n'ont qu'un unique but, il nous est alors plus facile de faire des extensions ou de corriger des défauts.  
+  + Single Responsibility Principle : Chaque classe possède plusieurs méthodes qui n'ont qu'un unique but, il nous est alors plus facile de faire des extensions ou de corriger des défauts.
+  + Façade : Une unique interface simple (```Game```) nous permet de masquer la complexité sous-jacente au code de l'application.
