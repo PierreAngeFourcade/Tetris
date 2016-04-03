@@ -39,5 +39,4 @@ Voici les commandes du jeu :
 
   + DAO : Ce design pattern est utilisé pour gérer le fichier CSV des highscores. Il permet de récupérer ces donneés.
   + Listener : Il sert à récupérer les événements qui interargissent avec le déroulement du jeu, notamment les touches du clavier pour les déplacements grâce à RawConsoleInput.
-  + Single Responsibility Principle : Chaque classe possède plusieurs méthodes qui n'ont qu'un unique but, il nous est alors plus facile de faire des extensions ou de corriger des défauts.
   + Façade : Une unique interface simple (```Game```) nous permet de masquer la complexité sous-jacente au code de l'application.
