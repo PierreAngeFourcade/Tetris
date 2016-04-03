@@ -49,10 +49,9 @@ public class Controleur {
     }
     
     public void run() throws InterruptedException{
-    	while(!gameOver){
+    	while(!partie.isGameOver()){
   			result=this.getInput();
     		this.keyPressed(result);
-    		System.out.println(result);
     	}
     }
 }
